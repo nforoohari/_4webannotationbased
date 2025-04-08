@@ -39,4 +39,17 @@ public class C03RequestParam {
         return modelAndView;
     }
 
+    //localhost:8080/3/m3?id=12&name=nokia
+    //localhost:8080/3/m3?id=12
+    @GetMapping(value = "/m3" , params = "name")
+    ModelAndView m3(@RequestParam(value = "id") Long id){
+
+        Product myProduct = new Product(id, "lg");
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("home3");
+        modelAndView.addObject("my_product", myProduct);
+        return modelAndView;
+    }
+
 }
