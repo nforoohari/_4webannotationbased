@@ -4,6 +4,6 @@
         <title>Title</title>
     </head>
     <body>
-        Home.jsp:
+        Home2.jsp: ${name}
     </body>
 </html>

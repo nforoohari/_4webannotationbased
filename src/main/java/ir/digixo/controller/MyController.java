@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MyController {
 
     @RequestMapping(value = "/service1", method = RequestMethod.GET)
-    String m() {
+    String m1() {
         return "home";
     }
 
     @RequestMapping(value = "/service2", method = RequestMethod.GET)
-    void m2(HttpServletRequest request, HttpServletResponse response) {
-        String my_name = "nima";
-        request.setAttribute("my_name", my_name);//object
-        System.out.println("getAttribute my_name: " + request.getAttribute("my_name"));
+    String m2(HttpServletRequest request, HttpServletResponse response) {
+        String myName = "nima";
+        request.setAttribute("my_name", myName);//object
         System.out.println("getParameter name: " + request.getParameter("name"));//text http://localhost:8080/home/service2?name=leila
+        return "home1";
     }
 
 }
