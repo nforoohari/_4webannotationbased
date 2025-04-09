@@ -1,39 +1,31 @@
 package ir.digixo.controller;
 
-import ir.digixo.entity.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import ir.digixo.entity.Product;
 
 @Controller
 @RequestMapping("/")
 public class C06HtmlForm {
-    //http://localhost:8080/4/m1/12/iphone
-    @GetMapping("product")
-    String  m()
-    {
+
+    //http://localhost:8080/product
+    @GetMapping("/product")
+    String m() {
         return "product";
     }
-    @GetMapping("createProduct")
-    ModelAndView m1(@ModelAttribute Product p)
-    {
 
-        // request.setAttribute("name","leila");
-
-       /* String id = request.getParameter("id");
-        String name = request.getParameter("name");
-
-        Product p=new Product(Long.parseLong(id),name);*/
+    @GetMapping("/createProduct")
+//    @PostMapping("/createProduct")
+    ModelAndView m1(@ModelAttribute Product p) {
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home");
-        modelAndView.addObject("p",p);
+        modelAndView.setViewName("home3");
+        modelAndView.addObject("my_product", p);
         return modelAndView;
     }
-
-
-
 
 }
