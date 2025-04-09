@@ -1,8 +1,6 @@
 package ir.digixo.controller;
 
-import ir.digixo.entity.Product;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -10,16 +8,15 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/7")
 public class C07MatrixValue {
 
-    //http://localhost:8080/7/matrix/leila;x=122222222
+    //http://localhost:8080/7/matrix/nima;cc=417
     @GetMapping("/matrix/{name}")
-    String m1(@PathVariable(name = "name") String name, @MatrixVariable(name = "x",pathVar = "name") int x)
-    {
+    ModelAndView m1(@PathVariable(value = "name") String name, @MatrixVariable(pathVar = "name", value = "cc") int cc) {
 
-        System.out.println(x);
-        return "home";
+        System.out.println("Company Code: " + cc);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("home2");
+        modelAndView.addObject("name", name);
+        return modelAndView;
     }
-
-
-
 
 }
