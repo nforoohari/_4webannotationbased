@@ -14,24 +14,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/9")
 public class C09Cookie {
 
-    //http://localhost:8080/7/matrix/leila;x=122222222
     @GetMapping("/m1")
-    String m1(@CookieValue("JSESSIONID") String name1)
-    {
-
-        System.out.println(name1);
+    String m1(HttpServletResponse httpServletResponse){
+        httpServletResponse.addCookie(new Cookie("my_cookie","my_cookie_value"));
         return "home";
     }
+
     @GetMapping("/m2")
-    String m2(HttpServletResponse httpServletResponse)
+    String m2(@CookieValue("my_cookie") String cookie_value,Model model)//Idea-98957374  JSESSIONID
     {
-
-        httpServletResponse.addCookie(new Cookie("my","sdfsdf"));
-        return "home";
+        model.addAttribute("name",cookie_value);
+        return "home2";
     }
 
-
-
-
-
+    @GetMapping("/m3")
+    String m3(@RequestHeader HttpHeaders headers, Model model)
+    {
+        model.addAttribute("name", headers);
+        return "home2";
+    }
 }

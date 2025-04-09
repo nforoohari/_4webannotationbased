@@ -9,31 +9,25 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/8")
 public class C08Headers {
 
-    //http://localhost:8080/7/matrix/leila;x=122222222
     @GetMapping("/m1")
-    String m1(@RequestHeader("User-Agent") String name1)
+    String m1(@RequestHeader("User-Agent") String ua)
     {
-
-        System.out.println(name1);
+        System.out.println("User-Agent : " + ua);
         return "home";
     }
-    @GetMapping("/m2")
-    String m2(@RequestHeader String accept)
-    {
 
-        System.out.println(accept);
+    @GetMapping("/m2")
+    String m2(@RequestHeader("Accept") String accept)
+    {
+        System.out.println("Accept : " + accept);
         return "home";
     }
 
     @GetMapping("/m3")
     String m3(@RequestHeader HttpHeaders headers, Model model)
     {
-
-        model.addAttribute("p", headers);
-        return "home";
+        model.addAttribute("name", headers);
+        return "home2";
     }
-
-
-
 
 }
