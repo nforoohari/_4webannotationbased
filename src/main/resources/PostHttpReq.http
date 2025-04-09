@@ -1,0 +1,26 @@
+### Send Post request with json body
+POST http://localhost:8080/10/m3
+Content-Type: application/json
+
+{
+  "id": 21,
+  "name": "m3PostContent"
+}
+
+### Send Post request with json body
+POST http://localhost:8080/10/m4
+Content-Type: application/json
+
+{
+  "id": 43,
+  "name": "m4PostContent"
+}
+
+### Send Post request with json body
+POST http://localhost:8080/10/m5
+Content-Type: application/json
+
+{
+  "id": 65,
+  "name": "m5PostContent"
+}

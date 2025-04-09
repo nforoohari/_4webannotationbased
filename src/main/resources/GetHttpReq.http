@@ -1,0 +1,26 @@
+### Send Get request with json body
+GET http://localhost:8080/10/m3
+Content-Type: application/json
+
+{
+  "id": 12,
+  "name": "m3GetContent"
+}
+
+### Send Get request with json body
+GET http://localhost:8080/10/m4
+Content-Type: application/json
+
+{
+  "id": 34,
+  "name": "m4GetContent"
+}
+
+### Send Get request with json body
+GET http://localhost:8080/10/m5
+Content-Type: application/json
+
+{
+  "id": 56,
+  "name": "m5GetContent"
+}
